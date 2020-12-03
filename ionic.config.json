@@ -1,0 +1,8 @@
+{
+  "name": "SportJom",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue",
+  "id": "659b7001"
+}
