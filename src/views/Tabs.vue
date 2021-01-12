@@ -1,39 +1,54 @@
 <template>
   <ion-page>
     <ion-tabs>
-      <ion-tab-bar slot="bottom">
+      
+      <ion-tab-bar slot="bottom" >
         <ion-tab-button tab="tab1" href="/tabs/tab1">
-          <ion-icon :icon="triangle" />
-          <ion-label>Tab 1</ion-label>
+          <ion-icon :icon="homeOutline" />
+          <ion-label>Home</ion-label>
         </ion-tab-button>
           
         <ion-tab-button tab="tab2" href="/tabs/tab2">
-          <ion-icon :icon="ellipse" />
-          <ion-label>Tab 2</ion-label>
+          <ion-icon :icon="calendarClear" />
+          <ion-label>Book</ion-label>
         </ion-tab-button>
         
         <ion-tab-button tab="tab3" href="/tabs/tab3">
-          <ion-icon :icon="square" />
-          <ion-label>Tab 3</ion-label>
+          <ion-icon :icon="search" />
+          <ion-label>Explore</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="tab4" href="/tabs/tab4">
+          <ion-icon :icon="ellipsisHorizontal" />
+          <ion-label>More</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
   </ion-page>
 </template>
 
-<script lang="ts">
+<script >
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage } from '@ionic/vue';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { calendarClear, search, homeOutline, ellipsisHorizontal } from 'ionicons/icons';
 
 export default {
   name: 'Tabs',
   components: { IonLabel, IonTabs, IonTabBar, IonTabButton, IonIcon, IonPage },
   setup() {
     return {
-      ellipse, 
-      square, 
-      triangle,
+      calendarClear, 
+      search, 
+      homeOutline,
+      ellipsisHorizontal
     }
   }
 }
 </script>
+
+<style scoped>
+ion-tab-bar {
+  --color:#ffffff;
+  --color-selected: #047857;
+  --background: #000000;
+}
+</style>
