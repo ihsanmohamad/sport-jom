@@ -48,7 +48,7 @@ export default {
 <style scoped>
 ion-tab-bar {
   --color:#ffffff;
-  --color-selected: #047857;
+  --color-selected:  #FB4E4E;
   --background: #000000;
 }
 </style>

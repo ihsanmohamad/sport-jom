@@ -2,36 +2,68 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Search Drink</ion-title>
+        <ion-title>Explore SportJom</ion-title>
       </ion-toolbar>
-        <ion-searchbar  debounce="500" :onIonChange="(e) => fetchSearchResults(e.detail.value)" placeholder="Drink Name" :value="state.lastSearch">
-        </ion-searchbar>
+        <!-- <ion-searchbar  debounce="500" :onIonChange="(e) => fetchSearchResults(e.detail.value)" placeholder="Drink Name" :value="state.lastSearch">
+        </ion-searchbar> -->
         
     </ion-header>
-    <ion-content v-if="state.loading"> 
-      <div class="loading-center">
+    <ion-content :fullscreen="true"> 
+      <!-- <div class="loading-center">
         <ion-spinner color="primary"></ion-spinner>
       </div>
     </ion-content>
     <ion-content :fullscreen="true" v-else>
       <div class="center" v-if="state.searchResults && state.searchResults.length === 0">
         <ion-label>No results</ion-label>
-      </div>
-      <facility-card></facility-card>
+      </div> -->
+     <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col>
+          <ion-card class="menu" button="true" >
+              <ion-card-header>
+                <ion-card-title>Facilities</ion-card-title>
+              </ion-card-header>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card class="menu" button="true">
+              <ion-card-header>
+                <ion-card-title>Team</ion-card-title>
+              </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card class="menu" button="true" >
+              <ion-card-header>
+                <ion-card-title>Event</ion-card-title>
+              </ion-card-header>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card class="menu" button="true">
+              <ion-card-header>
+                <ion-card-title>Tournament</ion-card-title>
+              </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+     </ion-grid>
     </ion-content>
   </ion-page>
 </template>
 
 <script >
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonSearchbar, IonSpinner, IonLabel } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent} from '@ionic/vue';
 import {reactive} from "vue";
 import axios from "axios";
-import FacilityCard from "@/components/FacilityCard.vue";
 
 
 export default  {
   name: 'Tab3',
-  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, FacilityCard, IonSearchbar, IonSpinner, IonLabel },
+  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage},
   setup() {
     const state = reactive({
       searchResults: [],
@@ -64,19 +96,14 @@ export default  {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .loading-center {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 50vh;
 }
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 80vh;
-}
+
 
 ion-spinner {
   transform: scale(2.5);
@@ -85,4 +112,12 @@ ion-searchbar {
   --background: #ffffff;
   --color: #000000;
 }
+
+.menu {
+  height: 150px;
+}
+ion-card-title {
+  padding: auto;
+}
+
 </style>

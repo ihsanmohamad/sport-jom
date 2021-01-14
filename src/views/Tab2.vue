@@ -2,24 +2,46 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Search By Ingredient</ion-title>
+        <ion-title>Sport Categories</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content v-if="state.loading">
-      <div class="loading-center">
-        <ion-spinner color="primary"></ion-spinner>
-      </div>
-    </ion-content>
-    <ion-content :fullscreen="true" v-else>
+    
+    <ion-content :fullscreen="true">
       <ion-list>
-          <ion-item v-for="ingredient in state.lstIngredients" 
-          :key="ingredient.strIngredient1" 
-          @click="() => router.push(`/drinks-by-ingredient/${ingredient.strIngredient1}`)">
-          <ion-avatar slot="end">
-            <img :src="ingredientImage(ingredient.strIngredient1)" />
-          </ion-avatar>
+          <ion-item @click="() => router.push(`/signup`)">
+          
           <ion-label>
-            <h2>{{ingredient.strIngredient1 }}</h2>
+            <h2>Badminton</h2>
+          </ion-label>
+          </ion-item>
+          <ion-item @click="() => router.push(`/login`)">
+          
+          <ion-label>
+            <h2>Futsal</h2>
+          </ion-label>
+          </ion-item>
+          <ion-item @click="() => router.push(`/drinks-by-ingredient/1`)">
+          
+          <ion-label>
+            <h2>Bowling</h2>
+          </ion-label>
+          </ion-item>
+          <ion-item @click="() => router.push(`/drinks-by-ingredient/1`)">
+          
+          <ion-label>
+            <h2>Basketball</h2>
+          </ion-label>
+          </ion-item>
+          <ion-item @click="() => router.push(`/drinks-by-ingredient/1`)">
+          
+          <ion-label>
+            <h2>Tennis</h2>
+          </ion-label>
+          </ion-item>
+          <ion-item @click="() => router.push(`/drinks-by-ingredient/1`)">
+          
+          <ion-label>
+            <h2>Gym</h2>
           </ion-label>
           </ion-item>
       </ion-list>
@@ -30,7 +52,7 @@
 <script >
 import { 
   IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
-  IonItem, IonSpinner, IonList, IonLabel, IonAvatar } from '@ionic/vue';
+  IonItem, IonList, IonLabel } from '@ionic/vue';
 import {reactive} from "vue";
 import {useRouter} from "vue-router";
 import axios from "axios";
@@ -41,7 +63,7 @@ export default  {
   name: 'Tab2',
   components: { 
     IonHeader, IonToolbar, IonTitle, IonContent, IonPage, 
-    IonItem, IonSpinner, IonList, IonLabel, IonAvatar },
+    IonItem, IonList, IonLabel },
   setup() {
     const router = useRouter();
     const state = reactive({
@@ -79,14 +101,5 @@ export default  {
 </script>
 
 <style scoped>
-.loading-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 90vh;
-}
 
-ion-spinner {
-  transform: scale(2.5);
-}
 </style>

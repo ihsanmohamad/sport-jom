@@ -1,10 +1,12 @@
 <template>
+<div class="test">
+
 <div class="ion-padding wrapper">
     <ion-grid class="ion-no-padding">
     <ion-row class="ion-align-items-baseline">
       <ion-col size="6">
         <h4 class="title">
-          Popular Dishes
+          Popular Venues
         </h4>
       </ion-col>
       <ion-col size="6">
@@ -21,49 +23,37 @@
         <ion-slides :options="slideOpts">
 
           <ion-slide>
-            <ion-card class="card">
+            <ion-card class="card" button="true">
               <ion-card-content class="ion-text-left">
 
                 <div class="img-wrapper">
-                  <ion-img src="https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"></ion-img>
+                  <ion-img src="https://scontent.fpen1-1.fna.fbcdn.net/v/t31.0-8/13497570_674072116077491_5888554000269933018_o.jpg?_nc_cat=100&ccb=2&_nc_sid=dd9801&_nc_ohc=RrBP1Aw7sfgAX_l2ZUK&_nc_ht=scontent.fpen1-1.fna&oh=d281183cb0685335878cd0fdcf8807cb&oe=60245D06"></ion-img>
                 </div>
                 
-                <ion-card-title class="title">Some Awesome Dish Title</ion-card-title>
-                <ion-card-subtitle>Some description here</ion-card-subtitle>
-                <ion-card-subtitle>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star-outline"></ion-icon>
-                </ion-card-subtitle>
+                <ion-card-title class="title">Manjung Badminton Arena</ion-card-title>
+                <ion-card-subtitle>Located at Sitiawan, Manjung. 6 Open Court to be book!</ion-card-subtitle>
+               
               </ion-card-content>
             </ion-card>
           </ion-slide>
 
           <ion-slide>
-            <ion-card class="card">
+            <ion-card class="card" button="true">
               <ion-card-content class="ion-text-left">
 
                 <div class="img-wrapper">
-                  <ion-img src="https://images.pexels.com/photos/793759/pexels-photo-793759.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></ion-img>
+                  <ion-img src="https://scontent.fpen1-1.fna.fbcdn.net/v/t31.0-8/13497570_674072116077491_5888554000269933018_o.jpg?_nc_cat=100&ccb=2&_nc_sid=dd9801&_nc_ohc=RrBP1Aw7sfgAX_l2ZUK&_nc_ht=scontent.fpen1-1.fna&oh=d281183cb0685335878cd0fdcf8807cb&oe=60245D06"></ion-img>
                 </div>
                 
-                <ion-card-title class="title">Some Awesome Dish Title</ion-card-title>
-                <ion-card-subtitle>Some description here</ion-card-subtitle>
-                <ion-card-subtitle>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon name="star-half"></ion-icon>
-                </ion-card-subtitle>
+                <ion-card-title class="title">Manjung Badminton Arena</ion-card-title>
+                <ion-card-subtitle>Located at Sitiawan, Manjung. 6 Open Court to be book!</ion-card-subtitle>
+               
               </ion-card-content>
             </ion-card>
           </ion-slide>
 
           <ion-slide>
-            <ion-card class="card">
+            <ion-card class="card" button="true">
               <ion-card-content class="ion-text-left">
 
                 <div class="img-wrapper">
@@ -72,19 +62,13 @@
                 
                 <ion-card-title class="title">Some Awesome Dish Title</ion-card-title>
                 <ion-card-subtitle>Some description here</ion-card-subtitle>
-                <ion-card-subtitle>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star"></ion-icon>
-                </ion-card-subtitle>
+               
               </ion-card-content>
             </ion-card>
           </ion-slide>
 
           <ion-slide>
-            <ion-card class="card">
+            <ion-card class="card" button="true">
               <ion-card-content class="ion-text-left">
 
                 <div class="img-wrapper">
@@ -93,19 +77,13 @@
                 
                 <ion-card-title class="title">Some Awesome Dish Title</ion-card-title>
                 <ion-card-subtitle>Some description here</ion-card-subtitle>
-                <ion-card-subtitle>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star-outline"></ion-icon>
-                  <ion-icon :icon="star-outline"></ion-icon>
-                </ion-card-subtitle>
+              
               </ion-card-content>
             </ion-card>
           </ion-slide>
 
           <ion-slide>
-            <ion-card class="card">
+            <ion-card class="card" button="true">
               <ion-card-content class="ion-text-left">
 
                 <div class="img-wrapper">
@@ -114,13 +92,7 @@
                 
                 <ion-card-title class="title">Some Awesome Dish Title</ion-card-title>
                 <ion-card-subtitle>Some description here</ion-card-subtitle>
-                <ion-card-subtitle>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star-outline"></ion-icon>
-                  <ion-icon :icon="star-outline"></ion-icon>
-                  <ion-icon :icon="star-outline"></ion-icon>
-                </ion-card-subtitle>
+               
               </ion-card-content>
             </ion-card>
           </ion-slide>
@@ -129,7 +101,7 @@
           
 
           <ion-slide>
-            <ion-card class="card">
+            <ion-card class="card" button="true">
               <ion-card-content class="ion-text-left">
 
                 <div class="img-wrapper">
@@ -138,13 +110,7 @@
                 
                 <ion-card-title class="title">Some Awesome Dish Title</ion-card-title>
                 <ion-card-subtitle>Some description here</ion-card-subtitle>
-                <ion-card-subtitle>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star"></ion-icon>
-                  <ion-icon :icon="star-outline"></ion-icon>
-                  <ion-icon :icon="star-outline"></ion-icon>
-                </ion-card-subtitle>
+               
               </ion-card-content>
             </ion-card>
           </ion-slide>
@@ -179,88 +145,74 @@
           <ion-slides :options="categoryOpts">
   
             <ion-slide>
-              <ion-card class="category">
+              <ion-card class="category" button="true">
                 <ion-card-header class="ion-text-center">
-                  <ion-icon src="assets/dish.svg"></ion-icon>
-                  <ion-card-title>Food</ion-card-title>
-                  <ion-card-subtitle>Something here</ion-card-subtitle>
+                  <ion-icon src="assets/icon/badminton.svg"></ion-icon>
+                  <ion-card-title>Badminton</ion-card-title>
+                  <ion-card-subtitle>Indoor/Outdoor</ion-card-subtitle>
                 </ion-card-header>
               </ion-card>
             </ion-slide>
 
             <ion-slide>
-              <ion-card class="category">
+              <ion-card class="category" button="true">
                 <ion-card-header class="ion-text-center">
-                  <ion-icon src="assets/cocktail.svg"></ion-icon>
-                  <ion-card-title>Drink</ion-card-title>
-                  <ion-card-subtitle>Something here</ion-card-subtitle>
+                  <ion-icon src="assets/icon/futsal.svg"></ion-icon>
+                  <ion-card-title>Futsal</ion-card-title>
+                  <ion-card-subtitle>Indoor</ion-card-subtitle>
                 </ion-card-header>
               </ion-card>
             </ion-slide>
 
             <ion-slide>
-              <ion-card class="category">
+              <ion-card class="category" button="true">
                 <ion-card-header class="ion-text-center">
-                  <ion-icon src="assets/burger.svg"></ion-icon>
-                  <ion-card-title>Burger</ion-card-title>
-                  <ion-card-subtitle>Something here</ion-card-subtitle>
+                  <ion-icon src="assets/icon/bowling.svg"></ion-icon>
+                  <ion-card-title>Bowling</ion-card-title>
+                  <ion-card-subtitle>Indoor</ion-card-subtitle>
                 </ion-card-header>
               </ion-card>
             </ion-slide>
 
             <ion-slide>
-              <ion-card class="category">
+              <ion-card class="category" button="true">
                 <ion-card-header class="ion-text-center">
-                  <ion-icon src="assets/pizza.svg"></ion-icon>
-                  <ion-card-title>Pizza</ion-card-title>
-                  <ion-card-subtitle>Something here</ion-card-subtitle>
+                  <ion-icon src="assets/icon/basketball.svg"></ion-icon>
+                  <ion-card-title>Basketball</ion-card-title>
+                  <ion-card-subtitle>Indoor/Outdoor</ion-card-subtitle>
                 </ion-card-header>
               </ion-card>
             </ion-slide>
 
             <ion-slide>
-              <ion-card class="category">
+              <ion-card class="category" button="true">
                 <ion-card-header class="ion-text-center">
-                  <ion-icon src="assets/taco.svg"></ion-icon>
-                  <ion-card-title>Mexican</ion-card-title>
-                  <ion-card-subtitle>Something here</ion-card-subtitle>
+                  <ion-icon src="assets/icon/tennis.svg"></ion-icon>
+                  <ion-card-title>Tennis</ion-card-title>
+                  <ion-card-subtitle>Indoor/Outdoor</ion-card-subtitle>
                 </ion-card-header>
               </ion-card>
             </ion-slide>
 
             <ion-slide>
-              <ion-card class="category">
+              <ion-card class="category" button="true">
                 <ion-card-header class="ion-text-center">
-                  <ion-icon src="assets/cookies.svg"></ion-icon>
-                  <ion-card-title>Dessert</ion-card-title>
-                  <ion-card-subtitle>Something here</ion-card-subtitle>
+                  <ion-icon src="assets/icon/gym.svg"></ion-icon>
+                  <ion-card-title>Gym</ion-card-title>
+                  <ion-card-subtitle>Indoor</ion-card-subtitle>
                 </ion-card-header>
               </ion-card>
             </ion-slide>
-
-            <ion-slide>
-              <ion-card class="category">
-                <ion-card-header class="ion-text-center">
-                  <ion-icon src="assets/noodle.svg"></ion-icon>
-                  <ion-card-title>Noodle</ion-card-title>
-                  <ion-card-subtitle>Something here</ion-card-subtitle>
-                </ion-card-header>
-              </ion-card>
-            </ion-slide>
-
-            
-
-            
-  
           </ion-slides>
         </ion-col>
       </ion-row>
     </ion-grid>
-
+</div>
 </template>
 
 <script>
 import { star, starOutline } from 'ionicons/icons';
+
 export default {
     name: "FacilityCard",
     components: {
@@ -273,9 +225,10 @@ export default {
         centeredSlides: true,
         slidesPerView: 1,
         spaceBetween: -60,
+        grabCursor: true
     };
     const categoryOpts = {
-        slidesPerView: 2.5,
+        slidesPerView: 2.0,
     };
     return {slideOpts, categoryOpts, star, starOutline};
     }
@@ -325,6 +278,7 @@ ion-searchbar {
   width: 100%;
   box-shadow: none;
   border-radius: 14px;
+ 
 }
 
 
@@ -334,6 +288,7 @@ ion-card-content {
     height: 200px;
     overflow: hidden;
     margin-bottom: 8px;
+
   }
 
   ion-icon {
@@ -360,6 +315,10 @@ ion-card-header {
 
 .wrapper {
   padding-bottom: 0;
+}
+
+.test {
+    margin-bottom: 10vh;
 }
 
 ion-badge {

@@ -3,9 +3,9 @@
     <ion-header>
       <ion-toolbar>
           <ion-buttons slot="start">
-              <ion-back-button text="Kembali" default-href="/"></ion-back-button>
+              <ion-back-button default-href="/"></ion-back-button>
           </ion-buttons>
-        <ion-title>{{ ingredient}} Drinks</ion-title>
+        <ion-title>{{ ingredient}}</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content v-if="state.loading">

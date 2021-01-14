@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>SportJom</ion-title>
+        <ion-title>SportJom {{ userToken }}</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content v-if="state.loading">
@@ -21,7 +21,8 @@
 import { 
   IonPage, IonHeader, IonToolbar, IonTitle, 
   IonContent, IonSpinner, IonRefresher} from '@ionic/vue';
-import {reactive} from 'vue';
+import {reactive, computed} from 'vue';
+import { useStore } from 'vuex'; 
 import axios from 'axios';
 import FacilityCard from "@/components/FacilityCard.vue";
 
@@ -33,6 +34,10 @@ export default  {
       randomCocktail: {},
       loading: false
     });
+
+    const store = useStore();
+
+    const userToken = computed(() => store.getters['userToken']);
 
     const fetchRandomCocktail = async(dispLoaderPage) => {
       if(dispLoaderPage) {
@@ -59,7 +64,8 @@ export default  {
     return {
       state,
       fetchRandomCocktail,
-      doRefresh
+      doRefresh,
+      userToken
     }
   }
 }

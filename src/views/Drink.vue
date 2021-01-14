@@ -3,7 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-back-button text="Kembali"  default-href="/"></ion-back-button>
+            <ion-back-button default-href="/"></ion-back-button>
         </ion-buttons>
         <ion-title>{{ state.drink.strDrink}}</ion-title>
       </ion-toolbar>
