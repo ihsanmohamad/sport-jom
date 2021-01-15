@@ -1,18 +1,32 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
+import store from "@/store"
 import Tabs from '../views/Tabs.vue';
+
+
+
+const authGuard = (to, from, next) => {
+  if (!store.getters.isAuthenticated) {
+    next('/login');
+  } else next()
+  
+};
 
 const routes = [
   {
     path: '/',
-    redirect: '/tabs/tab1'
+    redirect: '/login',
+    beforeEnter: authGuard,
   },
   {
     path: '/signup',
-    component: () => import('@/views/SignUp.vue')
+    component: () => import('@/views/SignUp.vue'),
+
   },
   {
     path: '/login',
-    component: () => import('@/views/Login.vue')
+    name: 'Login',
+    component: () => import('@/views/Login.vue'),
+
   },
   {
     path: '/tabs/',
@@ -24,33 +38,51 @@ const routes = [
       },
       {
         path: 'tab1',
-        component: () => import('@/views/Tab1.vue')
+        component: () => import('@/views/Tab1.vue'),
+        beforeEnter: authGuard,
+
       },
       {
         path: 'tab2',
         component: () => import('@/views/Tab2.vue'),
+        beforeEnter: authGuard,
         
       },
       {
         path: 'tab3',
-        component: () => import('@/views/Tab3.vue')
+        component: () => import('@/views/Tab3.vue'),
+        beforeEnter: authGuard,
+
       },
       {
         path: 'tab4',
-        component: () => import('@/views/Tab4.vue')
+        component: () => import('@/views/Tab4.vue'),
+        beforeEnter: authGuard,
+
       }
     ]
   },
   {
-    path: '/drinks-by-ingredient/:ingredient',
-    component: () => import('@/views/DrinksByIngredient.vue')
+    path: '/facility-by-category/:category',
+    component: () => import('@/views/FacilityByCategory.vue'),
+    beforeEnter: authGuard,
+
   },
   {
     path: '/drink/:id',
-    component: () => import('@/views/Drink.vue'),
+    component: () => import('@/views/FacilityDetail.vue'),
+    beforeEnter: authGuard,
+
   },
+  {
+    path: '/temperature',
+    component: () => import('@/views/Temperature.vue'),
+    beforeEnter: authGuard,
+
+  }
  
 ]
+
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

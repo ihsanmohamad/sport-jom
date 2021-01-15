@@ -28,12 +28,12 @@
 </template>
 
 <script>
-import {IonPage} from '@ionic/vue';
+import {IonPage, IonButton, IonButtons, IonToolbar, IonHeader, IonInput, IonContent} from '@ionic/vue';
 import { useStore} from 'vuex';
 import {useRouter} from 'vue-router';
 import {computed} from 'vue';
 export default {
-    components: {IonPage},
+    components: {IonPage, IonButton, IonButtons, IonToolbar, IonHeader, IonInput, IonContent},
     setup() {
         const router = useRouter();
         const store = useStore();

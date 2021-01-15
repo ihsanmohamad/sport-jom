@@ -35,10 +35,11 @@
 <script>
 import {IonPage, IonHeader, IonButtons, IonButton, IonToolbar, IonIcon, IonContent, IonInput} from '@ionic/vue';
 import {useRouter} from 'vue-router';
-import { reactive } from 'vue';
+import { reactive} from 'vue';
 import { useStore} from 'vuex';
 export default {
     components: {IonPage, IonHeader, IonButtons, IonButton, IonToolbar, IonIcon, IonContent, IonInput},
+    
     setup() {
         const router = useRouter();
         const user = reactive({
@@ -56,6 +57,7 @@ export default {
             store.dispatch('login', user)
         } 
 
+     
         return {login, user, router}
     }
 
@@ -79,6 +81,7 @@ ion-button {
 
 ion-input {
     border-radius : 14px;
+    color:black;
     --color: black;
     --background: white;
     border-style: solid;
@@ -115,7 +118,9 @@ display: flex;
     margin-top: 15%;
     padding-left: 30px;
     padding-right: 30px;
-
+    ion-input {
+      --color: black;
+    }
     ion-button {
          --background: #FB4E4E;
       color: #ffffff;

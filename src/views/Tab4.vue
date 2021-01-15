@@ -32,9 +32,9 @@
             <h2>Test 3</h2>
           </ion-label>
           </ion-item>
-          <ion-item @click="() => router.replace('/')">
+          <ion-item @click="() => router.push('/temperature')">
           <ion-label>
-            <h2>Test 4</h2>
+            <h2>Temperature record</h2>
           </ion-label>
           </ion-item>
       </ion-list>
@@ -51,7 +51,12 @@ export default {
 name: 'Tab4',
   components: { IonHeader, IonToolbar, IonTitle, IonContent , IonPage },
   setup() {
+
+      
+
       const router = useRouter();
+
+      
 
       return {router};
   }
