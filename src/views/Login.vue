@@ -2,11 +2,7 @@
 <ion-page>
   <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button color="primary">
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+   
     <ion-buttons slot="end">
       <ion-button @click="() => router.push('/signup')">Sign up</ion-button>
     </ion-buttons>
@@ -33,12 +29,12 @@
 </template>
 
 <script>
-import {IonPage, IonHeader, IonButtons, IonButton, IonToolbar, IonIcon, IonContent, IonInput} from '@ionic/vue';
-import {useRouter} from 'vue-router';
-import { reactive} from 'vue';
-import { useStore} from 'vuex';
+import {IonPage, IonHeader, IonButtons, IonButton, IonToolbar, IonContent, IonInput} from '@ionic/vue';
+import { useRouter } from 'vue-router';
+import { reactive } from 'vue';
+import { useStore } from 'vuex';
 export default {
-    components: {IonPage, IonHeader, IonButtons, IonButton, IonToolbar, IonIcon, IonContent, IonInput},
+    components: {IonPage, IonHeader, IonButtons, IonButton, IonToolbar, IonContent, IonInput},
     
     setup() {
         const router = useRouter();
@@ -119,6 +115,9 @@ display: flex;
     padding-left: 30px;
     padding-right: 30px;
     ion-input {
+      border-radius : 14px;
+      border-style: solid;
+    border-width: 2px;
       --color: black;
     }
     ion-button {

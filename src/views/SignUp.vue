@@ -9,38 +9,106 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content fullscreen="true">
+   <ion-alert
+    :is-open="state.is_error"
+    header="Alert"
+    sub-header="Subtitle"
+    message="This is an alert message."
+    css-class="my-custom-class"
+    buttons="Ok"
+    @onDidDismiss="state.is_error=false"
+  >
+  </ion-alert>
   <h1>Create your<br />Account</h1>
 
   <form id="form">
       <div class="form-control">
       <label for="">Email</label>
-    <ion-input type="email" placeholder="eg. test@test.com" pattern="email" />
+    <ion-input type="email" placeholder="eg. test@test.com" pattern="email" v-model="user.email" />
     </div>
+    <div class="form-control">
     <label for="">Password</label>
-    <ion-input type="password" placeholder="Password"/>
-    <ion-button expand="block" shape="round">Sign Up</ion-button>
+    <ion-input type="password" placeholder="Password" v-model="user.password"/>
+    </div>
+    <div class="form-control">
+    <label for="">Confirm Password</label>
+    <ion-input type="password" placeholder="Confirm Password"/>
+    </div>
+    <ion-button expand="block" shape="round" @click="register">Sign Up</ion-button>
   </form>
 
-<h1>{{ userToken }}</h1>
 </ion-content>
 </ion-page>
 </template>
 
 <script>
-import {IonPage, IonButton, IonButtons, IonToolbar, IonHeader, IonInput, IonContent} from '@ionic/vue';
-import { useStore} from 'vuex';
+import {IonPage, IonButton, IonButtons, IonToolbar, IonHeader, IonInput, IonContent, IonAlert, alertController} from '@ionic/vue';
+// import { useStore} from 'vuex';
 import {useRouter} from 'vue-router';
-import {computed} from 'vue';
+import {reactive} from 'vue';
+import axios from 'axios';
+
 export default {
-    components: {IonPage, IonButton, IonButtons, IonToolbar, IonHeader, IonInput, IonContent},
+    components: {IonPage, IonButton, IonButtons, IonToolbar, IonHeader, IonInput, IonContent, IonAlert},
     setup() {
         const router = useRouter();
-        const store = useStore();
+        // const store = useStore();
 
-        const userToken = computed(() => store.getters['userToken']);
+        const state = reactive({
+          is_success: false,
+          is_error: false,
 
-        return {userToken, router};
+        })
+
+        const user = reactive({
+          email : "",
+          password: ""
+        });
+
+        const presentAlertSuccess = async () => {
+          const alert = await alertController
+            .create({
+              
+              header: 'Sign Up',
+              message: 'Sign Up Success.',
+              buttons: ['OK'],
+            });
+          return alert.present();
+        };
+        const presentAlertFail = async () => {
+          const alert = await alertController
+            .create({
+              
+              header: 'Error',
+              message: 'Something happened, please try again later!',
+              buttons: ['OK'],
+            });
+          return alert.present();
+        };
+      
+       
+
+        async function register() {
+          try {
+            await axios.post(`http://192.168.1.8:8000/auth/register` ,{
+            
+              email: user.email,
+              password: user.password,
+              is_active: true,
+              is_superuser: false,
+              is_business: true
+           })
+           
+           presentAlertSuccess();
+           router.push('/login');
+           } catch (err) {
+             presentAlertFail();
+           }
+        }
+
+        return { state , user, router, register};
     }
 }
 </script>

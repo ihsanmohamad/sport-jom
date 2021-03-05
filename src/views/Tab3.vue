@@ -20,14 +20,14 @@
      <ion-grid class="ion-no-padding">
       <ion-row>
         <ion-col>
-          <ion-card class="menu" button="true" >
+          <ion-card class="menu" button="true" @click="() => router.push('/search-facility')">
               <ion-card-header>
                 <ion-card-title>Facilities</ion-card-title>
               </ion-card-header>
           </ion-card>
         </ion-col>
         <ion-col>
-          <ion-card class="menu" button="true">
+          <ion-card class="menu" button="true" @click="() => router.push('/team')">
               <ion-card-header>
                 <ion-card-title>Team</ion-card-title>
               </ion-card-header>
@@ -56,20 +56,25 @@
 </template>
 
 <script >
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent} from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonCardTitle, IonCardHeader,
+IonCard, IonCol, IonRow, IonGrid} from '@ionic/vue';
 import {reactive} from "vue";
 import axios from "axios";
+import { useRouter } from 'vue-router';
 
 
 export default  {
   name: 'Tab3',
-  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage},
+  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonCardTitle, IonCardHeader,
+IonCard, IonCol, IonRow, IonGrid},
   setup() {
     const state = reactive({
       searchResults: [],
       loading: false,
       lastSearch: "" 
     });
+
+    const router = useRouter();
     
     const fetchSearchResults = async (searchTerm) => {
       state.lastSearch = "";
@@ -90,7 +95,7 @@ export default  {
     }
 
     return {
-      state, fetchSearchResults
+      router, state, fetchSearchResults
     }
   }
 }

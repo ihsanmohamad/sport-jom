@@ -17,7 +17,7 @@
         </ion-item>
 
         <ion-list class="options">
-          <ion-item @click="() => router.replace('/')">
+          <!-- <ion-item @click="() => router.replace('/')">
           <ion-label>
             <h2>Test</h2>
           </ion-label>
@@ -26,12 +26,12 @@
           <ion-label>
             <h2>Test 2</h2>
           </ion-label>
-          </ion-item>
-          <ion-item @click="() => router.replace('/')">
+          </ion-item>  -->
+          <ion-item @click="() => router.push('/profile')">
           <ion-label>
-            <h2>Test 3</h2>
+            <h2>Edit Profile</h2>
           </ion-label>
-          </ion-item>
+          </ion-item> 
           <ion-item @click="() => router.push('/temperature')">
           <ion-label>
             <h2>Temperature record</h2>
@@ -43,13 +43,13 @@
 </template>
 
 <script>
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent   } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonAvatar, IonLabel, IonItem, IonList   } from '@ionic/vue';
 
 import {useRouter} from "vue-router";
 
 export default {
 name: 'Tab4',
-  components: { IonHeader, IonToolbar, IonTitle, IonContent , IonPage },
+  components: { IonHeader, IonToolbar, IonTitle, IonContent , IonPage, IonAvatar, IonLabel, IonItem, IonList },
   setup() {
 
       

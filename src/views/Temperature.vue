@@ -21,12 +21,14 @@
         <ion-label>No results</ion-label>
       </div> -->
      <ion-grid class="ion-no-padding">
-      <ion-row v-for="data in temp.reading" :key="data" >
+      <!-- <ion-row v-for="data in temp.reading" :key="data" > -->
+      <ion-row >
         <ion-col>
           <ion-card class="menu ion-text-center" button="true">
                 <ion-card-header>Temperature</ion-card-header>
-                <ion-card-title>{{data}}</ion-card-title>
-                <ion-card-header> </ion-card-header>
+                <ion-card-title>{{temp.latest}}</ion-card-title>
+                <ion-card-header v-if="temp.latest > 37.5">You are sick!</ion-card-header>
+                <ion-card-header v-else>You are good to go!</ion-card-header>
           </ion-card>
         </ion-col>
       </ion-row>
@@ -36,19 +38,22 @@
 </template>
 
 <script >
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton} from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, IonCardHeader,
+IonCardTitle, IonCard, IonCol, IonRow, IonGrid} from '@ionic/vue';
 import {useRouter} from 'vue-router';
 import axios from 'axios';
 import { reactive, onBeforeMount } from 'vue';
 
 export default  {
   name: 'Tab3',
-  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonBackButton},
+  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonBackButton, IonCardHeader,
+IonCardTitle, IonCard, IonCol, IonRow, IonGrid},
   setup() {
 
     const temp = reactive({
         reading: {},
-        latest: ""
+        latest: 0,
+        isGood: false
     })
 
     const router = useRouter();
@@ -59,7 +64,9 @@ export default  {
     if(res.data) {
 
             temp.reading = res.data;
-            temp.last = res.data.slice(-1);
+            const data = Object.values(temp.reading);
+            temp.reading = data[0].replace('°C', '');
+            temp.latest = parseFloat(temp.reading);
         }
     }
     onBeforeMount(() => {

@@ -1,5 +1,5 @@
 <template>
-      <ion-card class="card" button="true">
+      <ion-card class="card" button="true" @click="() => router.push('/book-now')">
         <ion-card-content class="ion-text-left">
 
           <div class="img-wrapper">

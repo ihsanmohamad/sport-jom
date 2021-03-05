@@ -69,6 +69,12 @@ const routes = [
 
   },
   {
+    path: '/search-facility',
+    component: () => import('@/views/SearchFacility.vue'),
+    beforeEnter: authGuard,
+
+  },
+  {
     path: '/drink/:id',
     component: () => import('@/views/FacilityDetail.vue'),
     beforeEnter: authGuard,
@@ -79,7 +85,35 @@ const routes = [
     component: () => import('@/views/Temperature.vue'),
     beforeEnter: authGuard,
 
-  }
+  },
+  {
+    path: '/profile',
+    component: () => import('@/views/UserProfile.vue'),
+    beforeEnter: authGuard,
+
+  },
+  {
+    path: '/team',
+    component: () => import('@/views/Team.vue'),
+    beforeEnter: authGuard,
+    
+  },
+  {
+    path: '/team/create',
+    component: () => import('@/views/NewTeam.vue'),
+    beforeEnter: authGuard,
+  },
+  {
+    path: '/team/:id',
+    component: () => import('@/views/TeamById.vue'),
+    beforeEnter: authGuard,
+  },
+  {
+    path: '/book-now/:id',
+    component: () => import('@/views/BookNow.vue'),
+    beforeEnter: authGuard,
+    }
+    
  
 ]
 

@@ -27,7 +27,7 @@
       </ion-col>
       <ion-col size="6">
         <h4 class="more ion-text-end">
-          View more
+          <ion-button @click="() => router.push('/search-facility')">View more</ion-button>
         </h4>
       </ion-col>
     </ion-row>
@@ -57,8 +57,8 @@
         </ion-col>
         <ion-col size="6">
           <h4 class="more ion-text-end">
-            Show more
-          </h4>
+          <ion-button @click="() => router.push('/tabs/tab2')">View more</ion-button>
+        </h4>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -144,6 +144,7 @@ import {
   IonContent, IonSpinner, IonButton, IonButtons, IonCol, IonRow,
   IonGrid, IonSlides, IonIcon, IonCardTitle, IonCardSubtitle, 
   IonCardHeader, IonCard, IonSlide} from '@ionic/vue';
+
 import {reactive} from 'vue';
 import { useStore } from 'vuex'; 
 import axios from 'axios';
@@ -186,7 +187,7 @@ export default  {
         state.loading = true;
       }
 
-      const res = await axios.get(`http://192.168.1.5:8000/facility`);
+      const res = await axios.get(`http://192.168.1.8:8000/facility`);
 
       if(res.data) {
         state.facility = res?.data;
@@ -240,14 +241,14 @@ ion-item {
 }
 
 
-ion-searchbar {
-  --box-shadow: none;
-  --border-radius: 12px;
-}
 
 .more {
   font-size: 12px;
   color: #FB4E4E;
+  ion-button {
+  --background: none;
+  color: #FB4E4E;
+}
 }
 
 .title {
@@ -314,4 +315,6 @@ ion-badge {
   padding: 10px;
   font-size: 14px;
 }
+
+
 </style>

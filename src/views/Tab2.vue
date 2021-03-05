@@ -8,38 +8,37 @@
     
     <ion-content :fullscreen="true">
       <ion-list>
-          <ion-item @click="() => router.push(`/signup`)">
-          
+          <ion-item @click="() => router.push(`/facility-by-category/badminton`)">
           <ion-label>
             <h2>Badminton</h2>
           </ion-label>
           </ion-item>
-          <ion-item @click="() => router.push(`/login`)">
-          
+
+          <ion-item @click="() => router.push(`/facility-by-category/futsal`)">
           <ion-label>
             <h2>Futsal</h2>
           </ion-label>
           </ion-item>
-          <ion-item @click="() => router.push(`/drinks-by-ingredient/1`)">
-          
+
+          <ion-item @click="() => router.push(`/facility-by-category/bowling`)">
           <ion-label>
             <h2>Bowling</h2>
           </ion-label>
           </ion-item>
-          <ion-item @click="() => router.push(`/drinks-by-ingredient/1`)">
-          
+
+          <ion-item @click="() => router.push(`/facility-by-category/basketball`)">
           <ion-label>
             <h2>Basketball</h2>
           </ion-label>
           </ion-item>
-          <ion-item @click="() => router.push(`/drinks-by-ingredient/1`)">
-          
+
+          <ion-item @click="() => router.push(`/facility-by-category/tennis`)">
           <ion-label>
             <h2>Tennis</h2>
           </ion-label>
           </ion-item>
-          <ion-item @click="() => router.push(`/drinks-by-ingredient/1`)">
-          
+
+          <ion-item @click="() => router.push(`/facility-by-category/gym`)">
           <ion-label>
             <h2>Gym</h2>
           </ion-label>

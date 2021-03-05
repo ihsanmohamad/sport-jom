@@ -5,7 +5,7 @@
           <ion-buttons slot="start">
               <ion-back-button default-href="/"></ion-back-button>
           </ion-buttons>
-        <ion-title>{{ category }}</ion-title>
+        <ion-title>Search facilities</ion-title>
       </ion-toolbar>
       <ion-toolbar>
           <ion-searchbar debounce="500" :onIonChange="(e) => fetchSearchResults(e.detail.value)" placeholder="Facility" :value="state.lastSearch">
@@ -45,7 +45,7 @@ import axios from "axios";
 import FacilityCard from '@/components/FacilityCard.vue';
 
 export default  {
-  name: 'FacilityByCategory',
+  name: 'SearchFacility',
   components: { 
       IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons,
        IonBackButton, IonSpinner, IonSearchbar, FacilityCard , IonLabel},
@@ -67,7 +67,7 @@ export default  {
       if(searchTerm) {
         state.lastSearch = searchTerm;
         state.searchResults = [];
-        const res = await axios.get(`http://192.168.1.8:8000/facility/filter?category=${category}&name=${searchTerm}`);
+        const res = await axios.get(`http://192.168.1.8:8000/facility/filter?name=${searchTerm}`);
 
         if (res.data) {
           state.searchResults = res?.data
@@ -76,10 +76,10 @@ export default  {
       state.loading = false;
     }
 
-    const fetchResults = async () => {
+   const fetchResults = async () => {
       state.loading = true;
       
-        const res = await axios.get(`http://192.168.1.8:8000/facility/filter?category=${category}`);
+        const res = await axios.get(`http://192.168.1.8:8000/facility/`);
 
         if (res.data) {
           state.searchResults = res?.data
@@ -87,6 +87,7 @@ export default  {
       
       state.loading = false;
     }
+
 
     onBeforeMount(() =>{
       fetchResults();

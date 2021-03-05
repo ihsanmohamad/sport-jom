@@ -5,7 +5,7 @@
         <ion-buttons slot="start">
             <ion-back-button default-href="/"></ion-back-button>
         </ion-buttons>
-        <ion-title>{{ state.drink.strDrink}}</ion-title>
+        <ion-title>Sport Center</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content v-if="state.loading">
@@ -22,7 +22,7 @@
 <script>
 import {reactive} from "vue";
 import {useRoute} from "vue-router";
-import axios from "axios";
+// import axios from "axios";
 
 import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, IonSpinner} from "@ionic/vue";
 import FacilityCard from "@/components/FacilityCard.vue";
@@ -35,28 +35,16 @@ export default {
     },
     setup() {
         const route = useRoute();
-        const drinkId = route.params.id ;
 
         const state = reactive({
-            drink: {} ,
+           
             loading: false
         });
         
-        const fetchDrinkById = async (drinkId) => {
-            state.loading = true;
-
-            const res = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`);
-
-            if(res.data){
-                state.drink = res.data?.drinks[0];
-            }
-            state.loading = false;
-        }
-
-        fetchDrinkById(drinkId);
+      
 
         return {
-            state,
+            route, state,
         }
     }
 }

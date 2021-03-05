@@ -33,7 +33,7 @@ export default createStore({
         async login(context, payload) {
             const res = await axios({
                 method: 'post',
-                url: `http://192.168.1.5:8000/auth/jwt/login`,
+                url: `http://192.168.1.8:8000/auth/jwt/login`,
                 data: qs.stringify({
                     username: payload.email,
                     password: payload.password

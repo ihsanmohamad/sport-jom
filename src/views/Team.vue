@@ -5,10 +5,10 @@
           <ion-buttons slot="start">
               <ion-back-button default-href="/"></ion-back-button>
           </ion-buttons>
-        <ion-title>{{ category }}</ion-title>
+        <ion-title>Search Teams</ion-title>
       </ion-toolbar>
       <ion-toolbar>
-          <ion-searchbar debounce="500" :onIonChange="(e) => fetchSearchResults(e.detail.value)" placeholder="Facility" :value="state.lastSearch">
+          <ion-searchbar debounce="500" :onIonChange="(e) => fetchSearchResults(e.detail.value)" placeholder="Team" :value="state.lastSearch">
 
         </ion-searchbar>
         
@@ -23,8 +23,18 @@
       <div class="center" v-if="state.searchResults && state.searchResults.length === 0">
         <ion-label>No results</ion-label>
       </div>
-        
-          <facility-card v-for="data in state.searchResults" :key="data" :facility="data"></facility-card>
+        <ion-list v-for="team in state.searchResults" :key="team">
+             <ion-item @click="() => router.push(`/team/${team.id}`)">
+                <ion-label>
+                    <h2>{{ team.name}}</h2>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+          <ion-fab horizontal="end" vertical="bottom" slot="fixed" >
+        <ion-fab-button color="danger" @click="() => router.push('/team/create')">
+          <ion-icon :icon="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
 
      
     </ion-content>
@@ -37,18 +47,18 @@
 <script>
 import { 
     IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons,
-    IonBackButton, IonSpinner, IonSearchbar, IonLabel} from '@ionic/vue';
-import {reactive, onBeforeMount} from "vue";
+    IonBackButton, IonSpinner, IonSearchbar, IonLabel, IonIcon, IonFab, IonFabButton} from '@ionic/vue';
+import {reactive, onBeforeUpdate} from "vue";
+import { add } from "ionicons/icons"
 import {useRouter, useRoute} from "vue-router";
 import axios from "axios";
 
-import FacilityCard from '@/components/FacilityCard.vue';
 
 export default  {
-  name: 'FacilityByCategory',
+  name: 'SearchTeam',
   components: { 
       IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons,
-       IonBackButton, IonSpinner, IonSearchbar, FacilityCard , IonLabel},
+       IonBackButton, IonSpinner, IonSearchbar, IonLabel, IonIcon, IonFab, IonFabButton},
   setup() {
     const router = useRouter();
     const route = useRoute();
@@ -67,7 +77,7 @@ export default  {
       if(searchTerm) {
         state.lastSearch = searchTerm;
         state.searchResults = [];
-        const res = await axios.get(`http://192.168.1.8:8000/facility/filter?category=${category}&name=${searchTerm}`);
+        const res = await axios.get(`http://192.168.1.8:8000/facility/filter?name=${searchTerm}`);
 
         if (res.data) {
           state.searchResults = res?.data
@@ -76,10 +86,10 @@ export default  {
       state.loading = false;
     }
 
-    const fetchResults = async () => {
+   const fetchResults = async () => {
       state.loading = true;
       
-        const res = await axios.get(`http://192.168.1.8:8000/facility/filter?category=${category}`);
+        const res = await axios.get(`http://192.168.1.8:8000/team`);
 
         if (res.data) {
           state.searchResults = res?.data
@@ -88,7 +98,8 @@ export default  {
       state.loading = false;
     }
 
-    onBeforeMount(() =>{
+
+    onBeforeUpdate(() =>{
       fetchResults();
     })
 
@@ -97,7 +108,8 @@ export default  {
       router,
       state,
       category,
-      fetchSearchResults
+      fetchSearchResults,
+      add
     }
   }
 }
